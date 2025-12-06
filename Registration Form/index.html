@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Registration Form</title>
+    <link rel="stylesheet" href="ss.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Application / Registration Form</h1>
+    </header>
+
+    <form action="sub.php" method="POST" id="regForm">
+        <label for="name">Full Name:</label>
+        <input type="text" name="name" id="name" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required><br>
+
+        <label for="phone">Phone:</label>
+        <input type="text" name="phone" id="phone" required><br>
+
+        <label for="course">Course Applied:</label>
+        <select name="course" id="course">
+      <option value="Computer Science">Computer Science</option>
+      <option value="Information Technology">Information Technology</option>
+      <option value="Electronics">Electronics</option>
+    </select><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        $(document).ready(function() {
+            $("#regForm").submit(function() {
+                let phone = $("#phone").val();
+                if (phone.length < 10 || !/^\d+$/.test(phone)) {
+                    alert("Phone number must be at least 10 digits and numeric!");
+                    return false;
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
